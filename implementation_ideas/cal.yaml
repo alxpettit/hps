@@ -1,0 +1,22 @@
+##### An idea for implementing via YAML syntax
+##### I will probably not be using this, as markdown is a slightly more human-friendly format with built in support for things like hotlinks
+
+# This data storage format is highly flexible and somewhat fluid
+# It results in a lot of user choice on how to hierarchically store their data, if they are editing their calendar by hand.
+# The program iterates over all subnodes recursively, reading time data from each. If parent node time data conflicts with child node time data, child node will override parent node.
+# Otherwise, node information is aggregated together.
+# For instance, if you have a series of tasks every monday, you can put them under a 'Monday' heading,
+# and merely specify times of day in each subnode.
+
+# Assumes monday of this week.
+Monday:
+    - 12:33 Hi I'm a task!
+        - Hi, I'm a subtask...
+
+# A task for today
+Today:
+    - This is a task for TODAY!
+
+- 5:33 Another task for today...
+
+1576721202: A task for a specific time, represented as a Unix epoch
